@@ -100,6 +100,32 @@ Access the dashboard at `http://localhost:8080`.
 
 ---
 
+## 📱 Android App
+
+OpenHisaab Gulak is ready for Android as both a **Progressive Web App (PWA)** and a **Native Android APK (via Capacitor)**:
+
+### 1. Instant Android PWA (No App Store Needed)
+1. Open your OpenHisaab deployment (or `http://<your-local-ip>:8080`) in **Chrome** on your Android phone.
+2. An **"Install App"** banner will automatically appear at the top.
+3. Tap **Install** (or tap Chrome menu `⋮` -> **"Add to Home screen"** / **"Install app"**).
+4. OpenHisaab Gulak will be added to your Android app drawer with its Clay Gulak icon, launches in standalone full-screen mode, and works completely offline!
+
+### 2. Build Native Android APK (`.apk` / `.aab`)
+```bash
+# Install Capacitor Android dependencies
+npm install @capacitor/core @capacitor/android
+npm install -D @capacitor/cli
+
+# Initialize and generate native Android project
+npx cap add android
+npx cap copy
+
+# Open in Android Studio to build APK or release to Google Play
+npx cap open android
+```
+
+---
+
 ## 🛠️ Local Development
 
 ```bash

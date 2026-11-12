@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenHisaab Gulak — Monthly Expense & Cashflow Tracker</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#059669">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="OpenHisaab Gulak">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Chart.js CDN -->
@@ -93,6 +100,12 @@
             <option value="SAR|SAR">SAR (SAR)</option>
           </select>
         </div>
+
+        <!-- Android PWA Install Button -->
+        <button id="btnInstallApp" class="hidden inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-lg transition">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+          <span>Install App</span>
+        </button>
 
         <!-- Export CSV -->
         <button id="btnExportCsv" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition">
@@ -1233,6 +1246,35 @@
     document.addEventListener('DOMContentLoaded', () => {
       initData();
       refreshAll();
+    });
+
+    // ----------------------------------------------------
+    // Android PWA Support: Service Worker & Install Prompt
+    // ----------------------------------------------------
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('[PWA] Service Worker registered:', reg.scope))
+          .catch((err) => console.log('[PWA] Service Worker error:', err));
+      });
+    }
+
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const installBtn = document.getElementById('btnInstallApp');
+      if (installBtn) installBtn.classList.remove('hidden');
+    });
+
+    document.getElementById('btnInstallApp')?.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`[PWA] Install prompt outcome: ${outcome}`);
+        deferredPrompt = null;
+        document.getElementById('btnInstallApp').classList.add('hidden');
+      }
     });
   </script>
 </body>

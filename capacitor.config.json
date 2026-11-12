@@ -1,0 +1,12 @@
+{
+  "appId": "com.openhisaab.gulak",
+  "appName": "OpenHisaab Gulak",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#f8fafc"
+  }
+}
