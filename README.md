@@ -1,14 +1,14 @@
 <div align="center">
-  <img src="assets/logo.svg" alt="OpenHisaab Clay Gulak Logo" width="140" height="140" />
-  <h1>OpenHisaab</h1>
-  <p><strong>Save Wisely • Authentic Clay Gulak Monthly Expense & Budget Manager</strong></p>
+  <img src="assets/logo.svg" alt="OpenHisaab Gulak Logo" width="160" height="135" />
+  <h1>OpenHisaab Gulak</h1>
+  <p><strong>Save Wisely • Children Filling the Clay Gulak with Joyful Savings</strong></p>
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
   [![Kubernetes Ready](https://img.shields.io/badge/Kubernetes-Ready-blue.svg)](#kubernetes-deployment)
   [![Docker](https://img.shields.io/badge/Docker-Multi--stage-2496ED.svg)](#docker--docker-compose)
 </div>
 
-> **OpenHisaab** is a cloud-native, enterprise-ready open-source expense tracker and cashflow manager. It supports **PostgreSQL, CockroachDB, MySQL, Microsoft SQL Server (MSSQL), and MongoDB**, with out-of-the-box Kubernetes manifests, health checks, and Docker Compose profiles.
+> **OpenHisaab Gulak** is a cloud-native, enterprise-ready open-source expense tracker and cashflow manager. It supports **PostgreSQL, CockroachDB, MySQL, Microsoft SQL Server (MSSQL), and MongoDB**, with out-of-the-box Kubernetes manifests, health checks, and Docker Compose profiles.
 
 ---
 

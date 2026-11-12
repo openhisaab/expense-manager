@@ -1,176 +1,257 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" width="100%" height="100%">
   <defs>
     <!-- Background Glow -->
-    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#059669" stop-opacity="0" />
+    <radialGradient id="bgSoftGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.6" />
+      <stop offset="60%" stop-color="#ecfdf5" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Clay Gulak Body Gradient -->
-    <radialGradient id="clayGradient" cx="38%" cy="38%" r="62%">
-      <stop offset="0%" stop-color="#f97316" />
-      <stop offset="35%" stop-color="#ea580c" />
-      <stop offset="70%" stop-color="#c2410c" />
+    <!-- Clay Gulak Gradient -->
+    <radialGradient id="terracottaPot" cx="42%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#fb923c" />
+      <stop offset="25%" stop-color="#ea580c" />
+      <stop offset="65%" stop-color="#c2410c" />
       <stop offset="100%" stop-color="#7c2d12" />
     </radialGradient>
 
-    <!-- Terracotta Highlights -->
-    <linearGradient id="clayHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffedd5" stop-opacity="0.6" />
+    <!-- Clay Highlights -->
+    <linearGradient id="potHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5" stop-opacity="0.65" />
       <stop offset="100%" stop-color="#fdba74" stop-opacity="0" />
     </linearGradient>
 
-    <!-- Traditional Red Decorative Band -->
-    <linearGradient id="redDeco" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#991b1b" />
-      <stop offset="50%" stop-color="#dc2626" />
-      <stop offset="100%" stop-color="#991b1b" />
-    </linearGradient>
-
-    <!-- Traditional Green Motif -->
-    <linearGradient id="greenDeco" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#15803d" />
-      <stop offset="100%" stop-color="#166534" />
-    </linearGradient>
-
     <!-- Gold Coin Gradient -->
-    <linearGradient id="goldCoin" x1="20%" y1="0%" x2="80%" y2="100%">
+    <linearGradient id="shiningCoin" x1="10%" y1="0%" x2="90%" y2="100%">
       <stop offset="0%" stop-color="#fef08a" />
-      <stop offset="30%" stop-color="#facc15" />
+      <stop offset="35%" stop-color="#facc15" />
       <stop offset="70%" stop-color="#eab308" />
       <stop offset="100%" stop-color="#ca8a04" />
     </linearGradient>
 
-    <!-- Gold Rim Gradient -->
-    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fef9c3" />
-      <stop offset="100%" stop-color="#a16207" />
+    <!-- Traditional Red Band -->
+    <linearGradient id="tradRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b91c1c" />
+      <stop offset="50%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+
+    <!-- Child 1 (Girl) Skin & Clothes -->
+    <linearGradient id="skinTone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa" />
+      <stop offset="100%" stop-color="#fdba74" />
+    </linearGradient>
+
+    <linearGradient id="girlDress" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#be123c" />
+    </linearGradient>
+
+    <!-- Child 2 (Boy) Clothes -->
+    <linearGradient id="boyShirt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
     </linearGradient>
 
     <!-- Drop Shadow Filter -->
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.25" />
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.2" />
     </filter>
 
-    <filter id="coinGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
+    <filter id="glowEffect" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
-  <!-- Background Soft Aura -->
-  <circle cx="100" cy="100" r="92" fill="url(#bgGlow)" />
+  <!-- Background Aura -->
+  <circle cx="120" cy="105" r="95" fill="url(#bgSoftGlow)" />
 
-  <!-- Ground Shadow under Gulak -->
-  <ellipse cx="100" cy="178" rx="46" ry="9" fill="#0f172a" opacity="0.18" />
-  <ellipse cx="100" cy="177" rx="30" ry="5" fill="#0f172a" opacity="0.25" />
+  <!-- Ground Shadows -->
+  <ellipse cx="128" cy="178" rx="42" ry="8" fill="#0f172a" opacity="0.22" />
+  <ellipse cx="60" cy="178" rx="24" ry="5" fill="#0f172a" opacity="0.16" />
+  <ellipse cx="196" cy="178" rx="24" ry="5" fill="#0f172a" opacity="0.16" />
 
-  <!-- Main Gulak Group with Shadow -->
-  <g filter="url(#shadow)">
-    
-    <!-- Lower Base of Gulak -->
-    <path d="M 75 168 Q 100 174 125 168 L 121 162 Q 100 166 79 162 Z" fill="#7c2d12" />
+  <!-- ======================================================== -->
+  <!-- 1. LEFT CHILD (Joyful Little Boy Reaching & Feeding Coin) -->
+  <!-- ======================================================== -->
+  <g id="boyChild" filter="url(#softShadow)">
+    <!-- Boy Body / Torso -->
+    <path d="M 46 138 C 42 152 40 166 42 176 L 68 176 C 70 165 68 152 64 138 Z" fill="url(#boyShirt)" />
+    <!-- White Collar -->
+    <path d="M 49 138 Q 55 144 61 138 Z" fill="#ffffff" />
 
-    <!-- Main Spherical Clay Body -->
-    <!-- Authentic South Asian Clay Gulak Shape -->
-    <path d="M 100 78
-             C 126 78 158 96 162 126
-             C 165 146 142 166 118 170
-             C 100 172 82 170 62 160
-             C 42 150 36 136 38 122
-             C 42 96 74 78 100 78 Z"
-          fill="url(#clayGradient)" />
+    <!-- Boy Left Arm (At rest / balancing) -->
+    <path d="M 44 140 C 35 146 30 156 34 165 C 38 168 44 164 42 154 Z" fill="url(#skinTone)" />
 
-    <!-- Clay Surface Highlight (Top-left bulbous reflection) -->
-    <path d="M 98 84
-             C 76 85 54 100 50 120
-             C 48 130 52 138 60 142
-             C 52 134 50 120 56 108
-             C 64 92 82 85 98 84 Z"
-          fill="url(#clayHighlight)" />
+    <!-- Boy Head -->
+    <ellipse cx="55" cy="115" rx="16" ry="17" fill="url(#skinTone)" />
+    <!-- Cheerful Cheeks -->
+    <ellipse cx="44" cy="120" rx="3.5" ry="2.2" fill="#f43f5e" opacity="0.4" />
+    <ellipse cx="66" cy="120" rx="3.5" ry="2.2" fill="#f43f5e" opacity="0.4" />
+    <!-- Happy Smile -->
+    <path d="M 50 122 Q 55 128 60 122" stroke="#9a3412" stroke-width="1.8" stroke-linecap="round" fill="none" />
+    <!-- Happy Eyes (Arched joyful curve) -->
+    <path d="M 45 112 Q 48 108 51 112" stroke="#451a03" stroke-width="2" stroke-linecap="round" fill="none" />
+    <path d="M 59 112 Q 62 108 65 112" stroke="#451a03" stroke-width="2" stroke-linecap="round" fill="none" />
 
-    <!-- Traditional Etched Horizontal Grooves (Characteristic of clay potters) -->
-    <path d="M 44 116 Q 100 134 156 116" fill="none" stroke="#7c2d12" stroke-width="2.5" opacity="0.65" />
-    <path d="M 46 120 Q 100 138 154 120" fill="none" stroke="url(#redDeco)" stroke-width="2.5" />
-    
-    <path d="M 52 142 Q 100 156 148 142" fill="none" stroke="#7c2d12" stroke-width="2" opacity="0.5" />
-    <path d="M 54 145 Q 100 158 146 145" fill="none" stroke="url(#redDeco)" stroke-width="2" />
+    <!-- Boy Neat Hair -->
+    <path d="M 39 112 C 37 98 46 94 56 94 C 66 94 74 99 72 112 C 68 103 62 104 57 101 C 52 105 44 104 39 112 Z" fill="#1e293b" />
+    <path d="M 48 94 C 54 88 62 90 66 94 Z" fill="#334155" opacity="0.4" />
 
-    <!-- Traditional Floral Clay Motifs (Handcrafted look) -->
-    <!-- Center Green Petal Motif -->
-    <path d="M 100 125 C 96 132 94 138 100 144 C 106 138 104 132 100 125 Z" fill="url(#greenDeco)" />
-    <path d="M 100 135 C 93 133 88 136 86 140 C 92 141 97 139 100 135 Z" fill="url(#greenDeco)" />
-    <path d="M 100 135 C 107 133 112 136 114 140 C 108 141 103 139 100 135 Z" fill="url(#greenDeco)" />
-
-    <!-- Left & Right Traditional Red Dots/Rosettes -->
-    <circle cx="76" cy="132" r="5" fill="url(#redDeco)" />
-    <circle cx="76" cy="132" r="2.5" fill="#fca5a5" opacity="0.6" />
-    <circle cx="124" cy="132" r="5" fill="url(#redDeco)" />
-    <circle cx="124" cy="132" r="2.5" fill="#fca5a5" opacity="0.6" />
-
-    <!-- Traditional Clay Neck & Tiered Top Knob -->
-    <!-- Neck Base Ring -->
-    <ellipse cx="100" cy="78" rx="20" ry="6" fill="#9a3412" />
-    <ellipse cx="100" cy="77" rx="19" ry="5.5" fill="#c2410c" />
-    <ellipse cx="100" cy="76" rx="18" ry="5" fill="url(#redDeco)" />
-
-    <!-- Conical Neck Column -->
-    <path d="M 85 76 C 88 62 90 56 93 50 L 107 50 C 110 56 112 62 115 76 Z" fill="url(#clayGradient)" />
-    <!-- Neck highlight -->
-    <path d="M 92 74 C 93 62 94 56 96 51 L 99 51 C 97 56 96 62 95 74 Z" fill="#ffedd5" opacity="0.4" />
-
-    <!-- Middle Tiered Collar -->
-    <ellipse cx="100" cy="50" rx="15" ry="4.5" fill="#7c2d12" />
-    <ellipse cx="100" cy="49" rx="14" ry="4" fill="url(#redDeco)" />
-
-    <!-- Top Crown Finial (Dome knob of the Gulak) -->
-    <path d="M 92 49 C 92 40 96 34 100 32 C 104 34 108 40 108 49 Z" fill="url(#clayGradient)" />
-    <!-- Finial Top Beaded Tip with traditional red painted peak -->
-    <circle cx="100" cy="33" r="3.5" fill="url(#redDeco)" />
-    <circle cx="99" cy="32" r="1.2" fill="#fecaca" />
-
-    <!-- THE COIN SLOT (Authentic narrow coin slot of the Gulak) -->
-    <!-- Outer Slot Cavity -->
-    <ellipse cx="100" cy="98" rx="21" ry="3.5" fill="#431407" />
-    <!-- Deep Slot Opening -->
-    <path d="M 80 98 C 80 96 120 96 120 98 C 120 100 80 100 80 98 Z" fill="#1c0a04" />
-    <!-- Slot Lip Highlight -->
-    <path d="M 81 100 Q 100 102 119 100" stroke="#fdba74" stroke-width="1" fill="none" opacity="0.7" />
-
+    <!-- Boy Right Arm (Stretching high towards Gulak slot with money!) -->
+    <!-- Sleeve -->
+    <path d="M 62 138 C 66 130 72 122 78 116 L 85 121 C 79 128 73 136 67 142 Z" fill="url(#boyShirt)" />
+    <!-- Forearm & Little Hand Holding Coin -->
+    <path d="M 80 118 C 88 108 96 95 104 86 C 108 88 111 94 106 98 C 98 106 91 116 84 122 Z" fill="url(#skinTone)" />
+    <!-- Little Fingers holding the coin -->
+    <circle cx="106" cy="87" r="4" fill="url(#skinTone)" />
+    <circle cx="109" cy="89" r="3.2" fill="url(#skinTone)" />
   </g>
 
-  <!-- SAVING ACTION: Golden Coin Dropping into Gulak Slot -->
-  <g filter="url(#coinGlow)">
-    
-    <!-- Motion Speed Lines (Indicates coin sliding down into slot) -->
-    <path d="M 88 56 L 88 78" stroke="#facc15" stroke-width="2" stroke-linecap="round" opacity="0.5" stroke-dasharray="2 4" />
-    <path d="M 112 56 L 112 78" stroke="#facc15" stroke-width="2" stroke-linecap="round" opacity="0.5" stroke-dasharray="2 4" />
+  <!-- ======================================================== -->
+  <!-- 2. CENTER: THE CLAY GULAK (Mitti Ki Gulak)                -->
+  <!-- ======================================================== -->
+  <g id="clayGulakPot" filter="url(#softShadow)">
+    <!-- Base Foot -->
+    <path d="M 108 168 Q 128 174 148 168 L 145 163 Q 128 167 111 163 Z" fill="#7c2d12" />
 
-    <!-- The Gold Coin (Tilted perspective, partially entered or dropping into the slot) -->
-    <g transform="translate(100, 74) rotate(-8)">
-      <!-- Outer Coin Thickness / 3D Edge -->
-      <ellipse cx="0" cy="2" rx="18" ry="9" fill="#a16207" />
-      <ellipse cx="0" cy="1" rx="18" ry="9" fill="#ca8a04" />
+    <!-- Spherical Terracotta Body -->
+    <path d="M 128 88
+             C 149 88 175 102 178 127
+             C 181 146 162 165 142 169
+             C 128 171 114 169 98 160
+             C 82 150 77 138 78 126
+             C 81 103 107 88 128 88 Z"
+          fill="url(#terracottaPot)" />
 
-      <!-- Coin Front Face -->
-      <ellipse cx="0" cy="0" rx="18" ry="9" fill="url(#goldCoin)" stroke="url(#goldRim)" stroke-width="1.2" />
+    <!-- Clay Surface Highlight Reflection -->
+    <path d="M 126 93
+             C 108 94 90 106 87 122
+             C 85 130 89 137 95 140
+             C 89 133 87 122 92 112
+             C 98 99 113 94 126 93 Z"
+          fill="url(#potHighlight)" />
 
-      <!-- Embossed Coin Inner Ring -->
-      <ellipse cx="0" cy="0" rx="14.5" ry="7" fill="none" stroke="#ca8a04" stroke-width="0.9" stroke-dasharray="2 1.5" />
+    <!-- Traditional Etched Horizontal Bands (Pottery rings) -->
+    <path d="M 83 121 Q 128 135 173 121" fill="none" stroke="#7c2d12" stroke-width="2" opacity="0.6" />
+    <path d="M 85 124 Q 128 138 171 124" fill="none" stroke="url(#tradRed)" stroke-width="2.2" />
 
-      <!-- Currency / Rupee Symbol on Coin -->
-      <text x="0" y="3.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="9" fill="#854d0e" text-anchor="middle">₨</text>
+    <path d="M 90 142 Q 128 153 166 142" fill="none" stroke="#7c2d12" stroke-width="1.8" opacity="0.5" />
+    <path d="M 92 145 Q 128 155 164 145" fill="none" stroke="url(#tradRed)" stroke-width="1.8" />
 
-      <!-- Glossy Coin Sheen -->
-      <path d="M -11 -3 Q 0 -6 11 -3 Q 0 -1 -11 -3 Z" fill="#ffffff" opacity="0.6" />
+    <!-- Traditional Painted Leaf & Rosette Motifs -->
+    <!-- Center Green Petal Motif -->
+    <path d="M 128 128 C 124 134 123 139 128 144 C 133 139 132 134 128 128 Z" fill="#15803d" />
+    <path d="M 128 136 C 122 134 118 137 116 140 C 121 141 125 139 128 136 Z" fill="#15803d" />
+    <path d="M 128 136 C 134 134 138 137 140 140 C 135 141 131 139 128 136 Z" fill="#15803d" />
+    <!-- Red Rosette Dots -->
+    <circle cx="108" cy="133" r="4.2" fill="url(#tradRed)" />
+    <circle cx="108" cy="133" r="2" fill="#fca5a5" opacity="0.7" />
+    <circle cx="148" cy="133" r="4.2" fill="url(#tradRed)" />
+    <circle cx="148" cy="133" r="2" fill="#fca5a5" opacity="0.7" />
+
+    <!-- Tiered Neck & Lid Knob -->
+    <ellipse cx="128" cy="88" rx="16" ry="5" fill="#9a3412" />
+    <ellipse cx="128" cy="87" rx="15" ry="4.5" fill="url(#tradRed)" />
+
+    <!-- Conical Neck -->
+    <path d="M 116 87 C 118 76 120 70 122 66 L 134 66 C 136 70 138 76 140 87 Z" fill="url(#terracottaPot)" />
+
+    <!-- Collar Ring -->
+    <ellipse cx="128" cy="66" rx="12" ry="3.8" fill="url(#tradRed)" />
+
+    <!-- Top Crown Dome Knob with red painted peak tip -->
+    <path d="M 121 66 C 121 58 125 53 128 51 C 131 53 135 58 135 66 Z" fill="url(#terracottaPot)" />
+    <circle cx="128" cy="51" r="3" fill="url(#tradRed)" />
+    <circle cx="127" cy="50" r="1" fill="#fecaca" />
+
+    <!-- COIN SLOT (Front upper dome of Gulak) -->
+    <ellipse cx="128" cy="104" rx="16" ry="3" fill="#431407" />
+    <path d="M 113 104 C 113 102 143 102 143 104 C 143 106 113 106 113 104 Z" fill="#1c0a04" />
+    <path d="M 114 105 Q 128 107 142 105" stroke="#fdba74" stroke-width="0.8" fill="none" opacity="0.8" />
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 3. RIGHT CHILD (Smiling Girl Adding Her Own Savings!)     -->
+  <!-- ======================================================== -->
+  <g id="girlChild" filter="url(#softShadow)">
+    <!-- Girl Dress / Torso -->
+    <path d="M 182 140 C 180 152 178 166 180 176 L 206 176 C 208 166 206 152 202 140 Z" fill="url(#girlDress)" />
+    <!-- Yellow Decorative Trim on Dress -->
+    <path d="M 183 170 Q 193 172 203 170" stroke="#facc15" stroke-width="2" fill="none" />
+
+    <!-- Girl Head -->
+    <ellipse cx="192" cy="116" rx="15" ry="16" fill="url(#skinTone)" />
+    <!-- Cheerful Cheeks -->
+    <ellipse cx="183" cy="121" rx="3.5" ry="2" fill="#f43f5e" opacity="0.4" />
+    <ellipse cx="201" cy="121" rx="3.5" ry="2" fill="#f43f5e" opacity="0.4" />
+    <!-- Happy Smile -->
+    <path d="M 188 123 Q 192 128 196 123" stroke="#9a3412" stroke-width="1.8" stroke-linecap="round" fill="none" />
+    <!-- Joyful Eyes -->
+    <path d="M 183 113 Q 186 109 189 113" stroke="#451a03" stroke-width="2" stroke-linecap="round" fill="none" />
+    <path d="M 195 113 Q 198 109 201 113" stroke="#451a03" stroke-width="2" stroke-linecap="round" fill="none" />
+
+    <!-- Cute Girl Hair (Two little high pigtails with bows!) -->
+    <path d="M 179 112 C 176 99 184 94 193 94 C 202 94 209 100 206 112 C 201 105 197 104 192 102 C 187 105 182 105 179 112 Z" fill="#292524" />
+    <!-- Left Pigtail & Red Bow -->
+    <ellipse cx="178" cy="98" rx="6" ry="7" fill="#292524" />
+    <circle cx="180" cy="100" r="3" fill="#ef4444" />
+    <!-- Right Pigtail & Red Bow -->
+    <ellipse cx="206" cy="98" rx="6" ry="7" fill="#292524" />
+    <circle cx="204" cy="100" r="3" fill="#ef4444" />
+
+    <!-- Girl Left Arm (Reaching up holding another coin!) -->
+    <!-- Sleeve -->
+    <path d="M 183 140 C 178 132 172 124 166 118 L 160 123 C 166 130 171 138 177 144 Z" fill="url(#girlDress)" />
+    <!-- Forearm reaching in excitement -->
+    <path d="M 164 120 C 158 111 150 99 144 92 C 140 94 138 100 142 104 C 148 111 154 120 161 125 Z" fill="url(#skinTone)" />
+    <!-- Little Hand holding second coin -->
+    <circle cx="142" cy="93" r="3.8" fill="url(#skinTone)" />
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 4. ACTION: GOLD COINS GOING INTO THE GULAK!              -->
+  <!-- ======================================================== -->
+  <g id="fallingCoins" filter="url(#glowEffect)">
+    <!-- Primary Coin (Entering the slot from boy's hand) -->
+    <g transform="translate(118, 92) rotate(-12)">
+      <!-- 3D Edge -->
+      <ellipse cx="0" cy="2" rx="14" ry="7" fill="#a16207" />
+      <ellipse cx="0" cy="1" rx="14" ry="7" fill="#ca8a04" />
+      <!-- Face -->
+      <ellipse cx="0" cy="0" rx="14" ry="7" fill="url(#shiningCoin)" stroke="#fef9c3" stroke-width="0.9" />
+      <!-- Embossed Rupee Sign -->
+      <text x="0" y="3" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="7.5" fill="#854d0e" text-anchor="middle">₨</text>
+      <!-- Sheen -->
+      <path d="M -8 -2 Q 0 -4 8 -2 Q 0 0 -8 -2 Z" fill="#ffffff" opacity="0.6" />
     </g>
 
-    <!-- Sparkles / Glint Stars (Reflecting wealth & savings) -->
-    <!-- Star 1 (Top Right of Coin) -->
-    <path d="M 124 58 Q 124 64 130 64 Q 124 64 124 70 Q 124 64 118 64 Q 124 64 124 58 Z" fill="#fef08a" />
-    <circle cx="124" cy="64" r="1.5" fill="#ffffff" />
+    <!-- Secondary Coin (Held by the girl, about to drop in!) -->
+    <g transform="translate(138, 86) rotate(18)">
+      <ellipse cx="0" cy="1.5" rx="11" ry="5.5" fill="#a16207" />
+      <ellipse cx="0" cy="0" rx="11" ry="5.5" fill="url(#shiningCoin)" stroke="#fef9c3" stroke-width="0.8" />
+      <text x="0" y="2.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="6" fill="#854d0e" text-anchor="middle">₨</text>
+    </g>
 
-    <!-- Star 2 (Small Left of Slot) -->
-    <path d="M 72 88 Q 72 92 76 92 Q 72 92 72 96 Q 72 92 68 92 Q 72 92 72 88 Z" fill="#fde047" opacity="0.8" />
+    <!-- Speed / Drop Trails into Slot -->
+    <path d="M 122 76 L 124 90" stroke="#facc15" stroke-width="1.8" stroke-dasharray="2 3" stroke-linecap="round" opacity="0.6" />
+    <path d="M 132 76 L 130 90" stroke="#facc15" stroke-width="1.8" stroke-dasharray="2 3" stroke-linecap="round" opacity="0.6" />
+
+    <!-- Sparkles & Magic Stars (Savings Delight) -->
+    <!-- Sparkle 1 -->
+    <path d="M 112 70 Q 112 75 117 75 Q 112 75 112 80 Q 112 75 107 75 Q 112 75 112 70 Z" fill="#fef08a" />
+    <circle cx="112" cy="75" r="1.2" fill="#ffffff" />
+
+    <!-- Sparkle 2 -->
+    <path d="M 152 74 Q 152 78 156 78 Q 152 78 152 82 Q 152 78 148 78 Q 152 78 152 74 Z" fill="#fde047" opacity="0.9" />
+
+    <!-- Little floating coin near base (Already saved / filling up!) -->
+    <g transform="translate(86, 168) rotate(-15)">
+      <ellipse cx="0" cy="0" rx="6" ry="3" fill="url(#shiningCoin)" opacity="0.85" />
+    </g>
+    <g transform="translate(166, 168) rotate(10)">
+      <ellipse cx="0" cy="0" rx="5" ry="2.6" fill="url(#shiningCoin)" opacity="0.85" />
+    </g>
   </g>
 </svg>
