@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- Background Glow -->
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Clay Gulak Body Gradient -->
+    <radialGradient id="clayGradient" cx="38%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="35%" stop-color="#ea580c" />
+      <stop offset="70%" stop-color="#c2410c" />
+      <stop offset="100%" stop-color="#7c2d12" />
+    </radialGradient>
+
+    <!-- Terracotta Highlights -->
+    <linearGradient id="clayHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#fdba74" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Traditional Red Decorative Band -->
+    <linearGradient id="redDeco" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#991b1b" />
+      <stop offset="50%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+
+    <!-- Traditional Green Motif -->
+    <linearGradient id="greenDeco" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15803d" />
+      <stop offset="100%" stop-color="#166534" />
+    </linearGradient>
+
+    <!-- Gold Coin Gradient -->
+    <linearGradient id="goldCoin" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="30%" stop-color="#facc15" />
+      <stop offset="70%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+
+    <!-- Gold Rim Gradient -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef9c3" />
+      <stop offset="100%" stop-color="#a16207" />
+    </linearGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.25" />
+    </filter>
+
+    <filter id="coinGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Soft Aura -->
+  <circle cx="100" cy="100" r="92" fill="url(#bgGlow)" />
+
+  <!-- Ground Shadow under Gulak -->
+  <ellipse cx="100" cy="178" rx="46" ry="9" fill="#0f172a" opacity="0.18" />
+  <ellipse cx="100" cy="177" rx="30" ry="5" fill="#0f172a" opacity="0.25" />
+
+  <!-- Main Gulak Group with Shadow -->
+  <g filter="url(#shadow)">
+    
+    <!-- Lower Base of Gulak -->
+    <path d="M 75 168 Q 100 174 125 168 L 121 162 Q 100 166 79 162 Z" fill="#7c2d12" />
+
+    <!-- Main Spherical Clay Body -->
+    <!-- Authentic South Asian Clay Gulak Shape -->
+    <path d="M 100 78
+             C 126 78 158 96 162 126
+             C 165 146 142 166 118 170
+             C 100 172 82 170 62 160
+             C 42 150 36 136 38 122
+             C 42 96 74 78 100 78 Z"
+          fill="url(#clayGradient)" />
+
+    <!-- Clay Surface Highlight (Top-left bulbous reflection) -->
+    <path d="M 98 84
+             C 76 85 54 100 50 120
+             C 48 130 52 138 60 142
+             C 52 134 50 120 56 108
+             C 64 92 82 85 98 84 Z"
+          fill="url(#clayHighlight)" />
+
+    <!-- Traditional Etched Horizontal Grooves (Characteristic of clay potters) -->
+    <path d="M 44 116 Q 100 134 156 116" fill="none" stroke="#7c2d12" stroke-width="2.5" opacity="0.65" />
+    <path d="M 46 120 Q 100 138 154 120" fill="none" stroke="url(#redDeco)" stroke-width="2.5" />
+    
+    <path d="M 52 142 Q 100 156 148 142" fill="none" stroke="#7c2d12" stroke-width="2" opacity="0.5" />
+    <path d="M 54 145 Q 100 158 146 145" fill="none" stroke="url(#redDeco)" stroke-width="2" />
+
+    <!-- Traditional Floral Clay Motifs (Handcrafted look) -->
+    <!-- Center Green Petal Motif -->
+    <path d="M 100 125 C 96 132 94 138 100 144 C 106 138 104 132 100 125 Z" fill="url(#greenDeco)" />
+    <path d="M 100 135 C 93 133 88 136 86 140 C 92 141 97 139 100 135 Z" fill="url(#greenDeco)" />
+    <path d="M 100 135 C 107 133 112 136 114 140 C 108 141 103 139 100 135 Z" fill="url(#greenDeco)" />
+
+    <!-- Left & Right Traditional Red Dots/Rosettes -->
+    <circle cx="76" cy="132" r="5" fill="url(#redDeco)" />
+    <circle cx="76" cy="132" r="2.5" fill="#fca5a5" opacity="0.6" />
+    <circle cx="124" cy="132" r="5" fill="url(#redDeco)" />
+    <circle cx="124" cy="132" r="2.5" fill="#fca5a5" opacity="0.6" />
+
+    <!-- Traditional Clay Neck & Tiered Top Knob -->
+    <!-- Neck Base Ring -->
+    <ellipse cx="100" cy="78" rx="20" ry="6" fill="#9a3412" />
+    <ellipse cx="100" cy="77" rx="19" ry="5.5" fill="#c2410c" />
+    <ellipse cx="100" cy="76" rx="18" ry="5" fill="url(#redDeco)" />
+
+    <!-- Conical Neck Column -->
+    <path d="M 85 76 C 88 62 90 56 93 50 L 107 50 C 110 56 112 62 115 76 Z" fill="url(#clayGradient)" />
+    <!-- Neck highlight -->
+    <path d="M 92 74 C 93 62 94 56 96 51 L 99 51 C 97 56 96 62 95 74 Z" fill="#ffedd5" opacity="0.4" />
+
+    <!-- Middle Tiered Collar -->
+    <ellipse cx="100" cy="50" rx="15" ry="4.5" fill="#7c2d12" />
+    <ellipse cx="100" cy="49" rx="14" ry="4" fill="url(#redDeco)" />
+
+    <!-- Top Crown Finial (Dome knob of the Gulak) -->
+    <path d="M 92 49 C 92 40 96 34 100 32 C 104 34 108 40 108 49 Z" fill="url(#clayGradient)" />
+    <!-- Finial Top Beaded Tip with traditional red painted peak -->
+    <circle cx="100" cy="33" r="3.5" fill="url(#redDeco)" />
+    <circle cx="99" cy="32" r="1.2" fill="#fecaca" />
+
+    <!-- THE COIN SLOT (Authentic narrow coin slot of the Gulak) -->
+    <!-- Outer Slot Cavity -->
+    <ellipse cx="100" cy="98" rx="21" ry="3.5" fill="#431407" />
+    <!-- Deep Slot Opening -->
+    <path d="M 80 98 C 80 96 120 96 120 98 C 120 100 80 100 80 98 Z" fill="#1c0a04" />
+    <!-- Slot Lip Highlight -->
+    <path d="M 81 100 Q 100 102 119 100" stroke="#fdba74" stroke-width="1" fill="none" opacity="0.7" />
+
+  </g>
+
+  <!-- SAVING ACTION: Golden Coin Dropping into Gulak Slot -->
+  <g filter="url(#coinGlow)">
+    
+    <!-- Motion Speed Lines (Indicates coin sliding down into slot) -->
+    <path d="M 88 56 L 88 78" stroke="#facc15" stroke-width="2" stroke-linecap="round" opacity="0.5" stroke-dasharray="2 4" />
+    <path d="M 112 56 L 112 78" stroke="#facc15" stroke-width="2" stroke-linecap="round" opacity="0.5" stroke-dasharray="2 4" />
+
+    <!-- The Gold Coin (Tilted perspective, partially entered or dropping into the slot) -->
+    <g transform="translate(100, 74) rotate(-8)">
+      <!-- Outer Coin Thickness / 3D Edge -->
+      <ellipse cx="0" cy="2" rx="18" ry="9" fill="#a16207" />
+      <ellipse cx="0" cy="1" rx="18" ry="9" fill="#ca8a04" />
+
+      <!-- Coin Front Face -->
+      <ellipse cx="0" cy="0" rx="18" ry="9" fill="url(#goldCoin)" stroke="url(#goldRim)" stroke-width="1.2" />
+
+      <!-- Embossed Coin Inner Ring -->
+      <ellipse cx="0" cy="0" rx="14.5" ry="7" fill="none" stroke="#ca8a04" stroke-width="0.9" stroke-dasharray="2 1.5" />
+
+      <!-- Currency / Rupee Symbol on Coin -->
+      <text x="0" y="3.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="9" fill="#854d0e" text-anchor="middle">₨</text>
+
+      <!-- Glossy Coin Sheen -->
+      <path d="M -11 -3 Q 0 -6 11 -3 Q 0 -1 -11 -3 Z" fill="#ffffff" opacity="0.6" />
+    </g>
+
+    <!-- Sparkles / Glint Stars (Reflecting wealth & savings) -->
+    <!-- Star 1 (Top Right of Coin) -->
+    <path d="M 124 58 Q 124 64 130 64 Q 124 64 124 70 Q 124 64 118 64 Q 124 64 124 58 Z" fill="#fef08a" />
+    <circle cx="124" cy="64" r="1.5" fill="#ffffff" />
+
+    <!-- Star 2 (Small Left of Slot) -->
+    <path d="M 72 88 Q 72 92 76 92 Q 72 92 72 96 Q 72 92 68 92 Q 72 92 72 88 Z" fill="#fde047" opacity="0.8" />
+  </g>
+</svg>
