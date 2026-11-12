@@ -1,0 +1,271 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Avatar Circular Outer Gradient -->
+    <linearGradient id="avatarBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+
+    <!-- Avatar Inner Background Gradient -->
+    <radialGradient id="avatarBg" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="45%" stop-color="#fef3c7" />
+      <stop offset="85%" stop-color="#ecfdf5" />
+      <stop offset="100%" stop-color="#d1fae5" />
+    </radialGradient>
+
+    <!-- Clay Gulak Pot Gradient -->
+    <radialGradient id="gulakClay" cx="40%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#fb923c" />
+      <stop offset="25%" stop-color="#ea580c" />
+      <stop offset="65%" stop-color="#c2410c" />
+      <stop offset="100%" stop-color="#7c2d12" />
+    </radialGradient>
+
+    <linearGradient id="claySheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#ffedd5" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Shiny Gold Coin Gradient -->
+    <linearGradient id="goldGleam" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="30%" stop-color="#facc15" />
+      <stop offset="70%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+
+    <linearGradient id="coinRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef9c3" />
+      <stop offset="100%" stop-color="#a16207" />
+    </linearGradient>
+
+    <!-- Traditional Red Band -->
+    <linearGradient id="redBand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#991b1b" />
+      <stop offset="50%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+
+    <!-- Skin & Clothes -->
+    <linearGradient id="skin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa" />
+      <stop offset="100%" stop-color="#fdba74" />
+    </linearGradient>
+
+    <linearGradient id="girlOutfit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#be123c" />
+    </linearGradient>
+
+    <linearGradient id="boyOutfit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <!-- Shadows & Glow Filters -->
+    <filter id="pfpShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.28" />
+    </filter>
+
+    <filter id="coinSparkleGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Circular Profile Mask -->
+    <clipPath id="avatarClip">
+      <circle cx="256" cy="256" r="236" />
+    </clipPath>
+  </defs>
+
+  <!-- Outer Ring Ring / Frame -->
+  <circle cx="256" cy="256" r="248" fill="url(#avatarBorder)" />
+  <circle cx="256" cy="256" r="240" fill="#ffffff" />
+
+  <!-- Avatar Content Clipped to Perfect Circle -->
+  <g clip-path="url(#avatarClip)">
+    <!-- Background Circle -->
+    <circle cx="256" cy="256" r="236" fill="url(#avatarBg)" />
+
+    <!-- Radiant Sunburst / Savings rays behind Gulak -->
+    <path d="M 256 256 L 220 0 L 292 0 Z" fill="#fef3c7" opacity="0.4" />
+    <path d="M 256 256 L 370 20 L 420 80 Z" fill="#fef3c7" opacity="0.4" />
+    <path d="M 256 256 L 90 20 L 140 80 Z" fill="#fef3c7" opacity="0.4" />
+
+    <!-- Ground Shadow under children & pot -->
+    <ellipse cx="256" cy="420" rx="140" ry="24" fill="#0f172a" opacity="0.22" />
+    <ellipse cx="256" cy="418" rx="90" ry="14" fill="#0f172a" opacity="0.3" />
+
+    <!-- ============================================== -->
+    <!-- BOY (Left side, stretching up to drop coin)    -->
+    <!-- ============================================== -->
+    <g id="pfpBoy" filter="url(#pfpShadow)">
+      <!-- Boy Body / Torso -->
+      <path d="M 120 320 C 110 355 106 390 110 415 L 175 415 C 180 390 176 355 166 320 Z" fill="url(#boyOutfit)" />
+      <!-- Collar -->
+      <path d="M 128 320 Q 143 334 158 320 Z" fill="#ffffff" />
+
+      <!-- Left Balancing Arm -->
+      <path d="M 115 325 C 95 340 85 365 92 388 C 102 395 116 385 112 360 Z" fill="url(#skin)" />
+
+      <!-- Boy Head -->
+      <ellipse cx="143" cy="265" rx="38" ry="40" fill="url(#skin)" />
+      <!-- Rosy Cheeks -->
+      <ellipse cx="118" cy="276" rx="8" ry="5" fill="#f43f5e" opacity="0.45" />
+      <ellipse cx="168" cy="276" rx="8" ry="5" fill="#f43f5e" opacity="0.45" />
+      <!-- Joyful Smiling Mouth -->
+      <path d="M 131 282 Q 143 296 155 282" stroke="#9a3412" stroke-width="3.5" stroke-linecap="round" fill="none" />
+      <!-- Joyful Curved Eyes -->
+      <path d="M 120 258 Q 127 248 134 258" stroke="#451a03" stroke-width="4.5" stroke-linecap="round" fill="none" />
+      <path d="M 152 258 Q 159 248 166 258" stroke="#451a03" stroke-width="4.5" stroke-linecap="round" fill="none" />
+
+      <!-- Boy Hair -->
+      <path d="M 105 258 C 100 225 120 216 145 216 C 170 216 190 228 185 258 C 175 238 160 240 148 233 C 136 242 118 240 105 258 Z" fill="#1e293b" />
+      <path d="M 126 216 C 140 202 160 206 170 216 Z" fill="#334155" opacity="0.5" />
+
+      <!-- Reaching Arm (stretching towards top of Gulak) -->
+      <!-- Shoulder & Sleeve -->
+      <path d="M 162 320 C 172 300 186 280 202 265 L 218 277 C 204 294 190 314 175 330 Z" fill="url(#boyOutfit)" />
+      <!-- Forearm & Hand holding the coin -->
+      <path d="M 206 270 C 224 246 244 218 260 196 C 270 200 276 214 266 224 C 248 244 230 268 214 280 Z" fill="url(#skin)" />
+      <!-- Fingers grasping coin -->
+      <circle cx="264" cy="198" r="9" fill="url(#skin)" />
+      <circle cx="270" cy="202" r="7.5" fill="url(#skin)" />
+    </g>
+
+    <!-- ============================================== -->
+    <!-- THE CLAY GULAK (Mitti Ki Gulak Centerpiece)    -->
+    <!-- ============================================== -->
+    <g id="pfpGulak" filter="url(#pfpShadow)">
+      <!-- Base Ring -->
+      <path d="M 205 395 Q 256 410 307 395 L 300 382 Q 256 392 212 382 Z" fill="#7c2d12" />
+
+      <!-- Spherical Clay Body -->
+      <path d="M 256 200
+               C 308 200 372 232 380 295
+               C 386 342 340 388 290 398
+               C 256 403 222 398 184 376
+               C 144 352 132 322 136 292
+               C 142 235 204 200 256 200 Z"
+            fill="url(#gulakClay)" />
+
+      <!-- Surface Gloss Highlight -->
+      <path d="M 252 212
+               C 208 214 164 244 156 284
+               C 152 304 162 320 176 328
+               C 162 312 156 286 168 260
+               C 182 228 220 214 252 212 Z"
+            fill="url(#claySheen)" />
+
+      <!-- Traditional Etched Clay Bands (Pottery Rings) -->
+      <path d="M 148 280 Q 256 312 364 280" fill="none" stroke="#7c2d12" stroke-width="4.5" opacity="0.65" />
+      <path d="M 152 287 Q 256 319 360 287" fill="none" stroke="url(#redBand)" stroke-width="5" />
+
+      <path d="M 164 330 Q 256 356 348 330" fill="none" stroke="#7c2d12" stroke-width="4" opacity="0.5" />
+      <path d="M 168 336 Q 256 362 344 336" fill="none" stroke="url(#redBand)" stroke-width="4" />
+
+      <!-- Traditional Painted Leaf & Rosette Motifs -->
+      <path d="M 256 295 C 246 310 244 322 256 334 C 268 322 266 310 256 295 Z" fill="#15803d" />
+      <path d="M 256 314 C 242 308 232 316 228 322 C 240 324 250 320 256 314 Z" fill="#15803d" />
+      <path d="M 256 314 C 270 308 280 316 284 322 C 272 324 262 320 256 314 Z" fill="#15803d" />
+      <!-- Rosette Dots -->
+      <circle cx="206" cy="308" r="9" fill="url(#redBand)" />
+      <circle cx="206" cy="308" r="4.5" fill="#fca5a5" opacity="0.8" />
+      <circle cx="306" cy="308" r="9" fill="url(#redBand)" />
+      <circle cx="306" cy="308" r="4.5" fill="#fca5a5" opacity="0.8" />
+
+      <!-- Traditional Neck & Finial Knob -->
+      <ellipse cx="256" cy="200" rx="38" ry="12" fill="#9a3412" />
+      <ellipse cx="256" cy="198" rx="36" ry="11" fill="url(#redBand)" />
+
+      <path d="M 226 198 C 230 172 236 158 240 148 L 272 148 C 276 158 282 172 286 198 Z" fill="url(#gulakClay)" />
+      <!-- Collar -->
+      <ellipse cx="256" cy="148" rx="28" ry="9" fill="url(#redBand)" />
+
+      <!-- Crown Finial Knob with Painted Peak -->
+      <path d="M 238 148 C 238 130 248 118 256 114 C 264 118 274 130 274 148 Z" fill="url(#gulakClay)" />
+      <circle cx="256" cy="114" r="7" fill="url(#redBand)" />
+      <circle cx="254" cy="112" r="2.5" fill="#fecaca" />
+
+      <!-- COIN SLOT (Right in front top dome) -->
+      <ellipse cx="256" cy="240" rx="38" ry="7" fill="#431407" />
+      <path d="M 220 240 C 220 236 292 236 292 240 C 292 244 220 244 220 240 Z" fill="#1c0a04" />
+      <path d="M 222 242 Q 256 246 290 242" stroke="#fdba74" stroke-width="1.8" fill="none" opacity="0.85" />
+    </g>
+
+    <!-- ============================================== -->
+    <!-- GIRL (Right side, excitedly adding savings)    -->
+    <!-- ============================================== -->
+    <g id="pfpGirl" filter="url(#pfpShadow)">
+      <!-- Dress / Torso -->
+      <path d="M 345 325 C 340 355 336 390 340 415 L 405 415 C 410 390 406 355 398 325 Z" fill="url(#girlOutfit)" />
+      <path d="M 347 400 Q 373 406 398 400" stroke="#facc15" stroke-width="4.5" fill="none" />
+
+      <!-- Girl Head -->
+      <ellipse cx="372" cy="268" rx="36" ry="38" fill="url(#skin)" />
+      <!-- Rosy Cheeks -->
+      <ellipse cx="350" cy="280" rx="8" ry="5" fill="#f43f5e" opacity="0.45" />
+      <ellipse cx="394" cy="280" rx="8" ry="5" fill="#f43f5e" opacity="0.45" />
+      <!-- Smile -->
+      <path d="M 362 284 Q 372 296 382 284" stroke="#9a3412" stroke-width="3.5" stroke-linecap="round" fill="none" />
+      <!-- Joyful Eyes -->
+      <path d="M 350 262 Q 357 252 364 262" stroke="#451a03" stroke-width="4.5" stroke-linecap="round" fill="none" />
+      <path d="M 380 262 Q 387 252 394 262" stroke="#451a03" stroke-width="4.5" stroke-linecap="round" fill="none" />
+
+      <!-- Hair with High Pigtails & Red Bows -->
+      <path d="M 340 260 C 334 228 352 216 374 216 C 396 216 414 230 406 260 C 394 242 384 240 372 236 C 360 242 348 244 340 260 Z" fill="#292524" />
+      <!-- Pigtails -->
+      <ellipse cx="338" cy="226" rx="14" ry="16" fill="#292524" />
+      <circle cx="342" cy="232" r="7" fill="#ef4444" />
+      <ellipse cx="406" cy="226" rx="14" ry="16" fill="#292524" />
+      <circle cx="402" cy="232" r="7" fill="#ef4444" />
+
+      <!-- Reaching Arm holding another coin -->
+      <path d="M 350 325 C 338 305 324 285 308 270 L 294 282 C 308 298 320 318 334 335 Z" fill="url(#girlOutfit)" />
+      <path d="M 304 274 C 290 252 272 226 258 212 C 248 216 244 230 254 240 C 268 256 282 278 296 288 Z" fill="url(#skin)" />
+      <circle cx="254" cy="214" r="8.5" fill="url(#skin)" />
+    </g>
+
+    <!-- ============================================== -->
+    <!-- SHINING COINS ENTERING THE GULAK WITH GLOW     -->
+    <!-- ============================================== -->
+    <g id="pfpCoins" filter="url(#coinSparkleGlow)">
+      <!-- Primary Gold Coin (Dropping into the slot from boy's hand) -->
+      <g transform="translate(236, 212) rotate(-14)">
+        <ellipse cx="0" cy="5" rx="34" ry="17" fill="#a16207" />
+        <ellipse cx="0" cy="2" rx="34" ry="17" fill="#ca8a04" />
+        <ellipse cx="0" cy="0" rx="34" ry="17" fill="url(#goldGleam)" stroke="url(#coinRim)" stroke-width="2.5" />
+        <ellipse cx="0" cy="0" rx="27" ry="13.5" fill="none" stroke="#ca8a04" stroke-width="1.8" stroke-dasharray="4 3" />
+        <!-- Embossed ₨ Currency Symbol -->
+        <text x="0" y="7" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="18" fill="#854d0e" text-anchor="middle">₨</text>
+        <!-- Glint Sheen -->
+        <path d="M -20 -5 Q 0 -11 20 -5 Q 0 -1 -20 -5 Z" fill="#ffffff" opacity="0.65" />
+      </g>
+
+      <!-- Secondary Gold Coin (Held in girl's hand ready to drop!) -->
+      <g transform="translate(282, 198) rotate(16)">
+        <ellipse cx="0" cy="3.5" rx="26" ry="13" fill="#a16207" />
+        <ellipse cx="0" cy="0" rx="26" ry="13" fill="url(#goldGleam)" stroke="url(#coinRim)" stroke-width="2" />
+        <text x="0" y="5.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="14" fill="#854d0e" text-anchor="middle">₨</text>
+      </g>
+
+      <!-- Speed / Motion Drops into Slot -->
+      <path d="M 244 174 L 248 206" stroke="#facc15" stroke-width="3.5" stroke-dasharray="4 6" stroke-linecap="round" opacity="0.75" />
+      <path d="M 268 174 L 264 206" stroke="#facc15" stroke-width="3.5" stroke-dasharray="4 6" stroke-linecap="round" opacity="0.75" />
+
+      <!-- Big Star Sparkles (Glittering Savings) -->
+      <!-- Star 1 (Top Left) -->
+      <path d="M 220 160 Q 220 172 232 172 Q 220 172 220 184 Q 220 172 208 172 Q 220 172 220 160 Z" fill="#fef08a" />
+      <circle cx="220" cy="172" r="3" fill="#ffffff" />
+
+      <!-- Star 2 (Top Right) -->
+      <path d="M 314 170 Q 314 180 324 180 Q 314 180 314 190 Q 314 180 304 180 Q 314 180 314 170 Z" fill="#fef08a" />
+      <circle cx="314" cy="180" r="2.5" fill="#ffffff" />
+
+      <!-- Star 3 (Bottom Center) -->
+      <path d="M 256 360 Q 256 368 264 368 Q 256 368 256 376 Q 256 368 248 368 Q 256 368 256 360 Z" fill="#facc15" opacity="0.9" />
+    </g>
+  </g>
+</svg>
