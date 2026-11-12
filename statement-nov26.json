@@ -1,0 +1,282 @@
+{
+  "statementMonth": "Nov-26",
+  "currency": "PKR",
+  "summary": {
+    "totalCashIn": 234078.00,
+    "totalCashOut": 219632.00,
+    "remainingBalance": 14446.00,
+    "burnRatePercentage": 93.83
+  },
+  "transactions": [
+    {
+      "id": "tx-1",
+      "type": "in",
+      "date": "2026-11-06T14:53:00",
+      "party": "Income / Cash In",
+      "category": "Salary / Cash In",
+      "note": "Nov Cash In Opening",
+      "amount": 234078.00
+    },
+    {
+      "id": "tx-2",
+      "type": "out",
+      "date": "2026-11-06T18:10:00",
+      "party": "AL-QAIM TRADERS",
+      "category": "Cash Withdrawal",
+      "note": "For Cash",
+      "amount": 30000.00
+    },
+    {
+      "id": "tx-3",
+      "type": "out",
+      "date": "2026-11-06T18:14:00",
+      "party": "KASHIF HUSSAIN",
+      "category": "Medical",
+      "note": "Medical",
+      "amount": 3700.00
+    },
+    {
+      "id": "tx-4",
+      "type": "out",
+      "date": "2026-11-06T18:22:00",
+      "party": "ALI RAZA",
+      "category": "Food & Groceries",
+      "note": "chicken",
+      "amount": 1150.00
+    },
+    {
+      "id": "tx-5",
+      "type": "out",
+      "date": "2026-11-06T18:32:00",
+      "party": "ASGHAR AHMED",
+      "category": "Food & Groceries",
+      "note": "Grocery",
+      "amount": 20000.00
+    },
+    {
+      "id": "tx-6",
+      "type": "out",
+      "date": "2026-11-06T18:46:00",
+      "party": "WAQAS ANJUM",
+      "category": "Utilities",
+      "note": "Water supply",
+      "amount": 1430.00
+    },
+    {
+      "id": "tx-7",
+      "type": "out",
+      "date": "2026-11-06T18:47:00",
+      "party": "GLOBAL NETWORK SOLUTIONS",
+      "category": "Utilities",
+      "note": "Internet",
+      "amount": 2000.00
+    },
+    {
+      "id": "tx-8",
+      "type": "out",
+      "date": "2026-11-06T18:48:00",
+      "party": "ZUBAIR AHMED",
+      "category": "Debt & Loan",
+      "note": "Loan",
+      "amount": 10000.00
+    },
+    {
+      "id": "tx-9",
+      "type": "out",
+      "date": "2026-11-06T18:49:00",
+      "party": "FARHAT SHAHID",
+      "category": "Housing & Rent",
+      "note": "House Rent",
+      "amount": 40000.00
+    },
+    {
+      "id": "tx-10",
+      "type": "out",
+      "date": "2026-11-06T18:50:00",
+      "party": "SYED JAFFAR HUSSAIN ZAIDI",
+      "category": "Ballot Committee",
+      "note": "Ballot Committee",
+      "amount": 12500.00
+    },
+    {
+      "id": "tx-11",
+      "type": "out",
+      "date": "2026-11-06T18:50:00",
+      "party": "BATOOL WASI",
+      "category": "Ballot Committee",
+      "note": "Ballot Committee",
+      "amount": 4000.00
+    },
+    {
+      "id": "tx-12",
+      "type": "out",
+      "date": "2026-11-06T18:55:00",
+      "party": "ASGHAR AHMED",
+      "category": "Food & Groceries",
+      "note": "Grocery",
+      "amount": 8000.00
+    },
+    {
+      "id": "tx-13",
+      "type": "out",
+      "date": "2026-11-06T19:17:00",
+      "party": "SSGC",
+      "category": "Utilities",
+      "note": "Utility (Gas)",
+      "amount": 2010.00
+    },
+    {
+      "id": "tx-14",
+      "type": "out",
+      "date": "2026-11-06T19:17:00",
+      "party": "K Electric",
+      "category": "Utilities",
+      "note": "Utility (Electricity)",
+      "amount": 5782.00
+    },
+    {
+      "id": "tx-15",
+      "type": "out",
+      "date": "2026-11-07T03:23:00",
+      "party": "FASIH ULLAH",
+      "category": "Dining & Outing",
+      "note": "breakfast outing",
+      "amount": 300.00
+    },
+    {
+      "id": "tx-16",
+      "type": "out",
+      "date": "2026-11-07T04:59:00",
+      "party": "MUHAMMAD MANSOOR ALI",
+      "category": "Transportation",
+      "note": "Traveling",
+      "amount": 362.00
+    },
+    {
+      "id": "tx-17",
+      "type": "out",
+      "date": "2026-11-07T16:55:00",
+      "party": "Cash WithDraw",
+      "category": "Cash Withdrawal",
+      "note": "For Home Cash",
+      "amount": 20000.00
+    },
+    {
+      "id": "tx-18",
+      "type": "out",
+      "date": "2026-11-07T19:29:00",
+      "party": "KASHIF HUSSAIN",
+      "category": "Medical",
+      "note": "Medical",
+      "amount": 220.00
+    },
+    {
+      "id": "tx-19",
+      "type": "out",
+      "date": "2026-11-08T00:11:00",
+      "party": "MUHAMMAD NADEEM",
+      "category": "Transportation",
+      "note": "Traveling",
+      "amount": 1800.00
+    },
+    {
+      "id": "tx-20",
+      "type": "out",
+      "date": "2026-11-08T20:26:00",
+      "party": "MUHAMMAD ARSHAD",
+      "category": "Uncategorized",
+      "note": "Not Remember",
+      "amount": 2000.00
+    },
+    {
+      "id": "tx-21",
+      "type": "out",
+      "date": "2026-11-08T23:39:00",
+      "party": "ASGHAR AHMED",
+      "category": "Uncategorized",
+      "note": "Not Remember",
+      "amount": 1000.00
+    },
+    {
+      "id": "tx-22",
+      "type": "out",
+      "date": "2026-11-09T18:18:00",
+      "party": "IZHAR AHMED",
+      "category": "Food & Groceries",
+      "note": "Grocery",
+      "amount": 160.00
+    },
+    {
+      "id": "tx-23",
+      "type": "out",
+      "date": "2026-11-09T20:29:00",
+      "party": "Mobilink Pre Paid",
+      "category": "Mobile & Telecom",
+      "note": "Call Package Jazz",
+      "amount": 750.00
+    },
+    {
+      "id": "tx-24",
+      "type": "out",
+      "date": "2026-11-09T20:31:00",
+      "party": "Telenor Pre Paid",
+      "category": "Mobile & Telecom",
+      "note": "Call Package Telenor",
+      "amount": 458.00
+    },
+    {
+      "id": "tx-25",
+      "type": "out",
+      "date": "2026-11-09T21:22:00",
+      "party": "IZHAR AHMED",
+      "category": "Food & Groceries",
+      "note": "Grocery",
+      "amount": 150.00
+    },
+    {
+      "id": "tx-26",
+      "type": "out",
+      "date": "2026-11-09T22:29:00",
+      "party": "Faysal Card",
+      "category": "Credit Card / Installment",
+      "note": "installment",
+      "amount": 45000.00
+    },
+    {
+      "id": "tx-27",
+      "type": "out",
+      "date": "2026-11-09T23:58:00",
+      "party": "IZHAR AHMED",
+      "category": "Food & Groceries",
+      "note": "Grocery",
+      "amount": 90.00
+    },
+    {
+      "id": "tx-28",
+      "type": "out",
+      "date": "2026-11-10T04:32:00",
+      "party": "SYED JAHANGIR SHAH",
+      "category": "Transportation",
+      "note": "Traveling",
+      "amount": 190.00
+    },
+    {
+      "id": "tx-29",
+      "type": "out",
+      "date": "2026-11-10T20:23:00",
+      "party": "Antigravity Payment",
+      "category": "Subscriptions & Software",
+      "note": "Software",
+      "amount": 6300.00
+    },
+    {
+      "id": "tx-30",
+      "type": "out",
+      "date": "2026-11-11T20:08:00",
+      "party": "ASHAHAD ALTAF",
+      "category": "Transportation",
+      "note": "Traveling",
+      "amount": 280.00
+    }
+  ]
+}
