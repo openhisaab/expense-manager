@@ -1,4 +1,4 @@
-const { getDatabaseAdapter } = require('./server/db');
+const { getDatabaseAdapter } = require('../server/db');
 
 async function verify() {
   console.log('Testing Database Adapters...');
