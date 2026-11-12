@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openhisaab-config
+  namespace: openhisaab
+  labels:
+    app.kubernetes.io/name: openhisaab
+data:
+  # Choose one: postgres | cockroachdb | mysql | mssql | mongodb | memory
+  DB_TYPE: "postgres"
+  DB_HOST: "postgres-service.openhisaab.svc.cluster.local"
+  DB_PORT: "5432"
+  DB_NAME: "openhisaab"
+  DB_POOL_MAX: "15"
+  DB_SSL: "false"
+  PORT: "8080"
+  NODE_ENV: "production"

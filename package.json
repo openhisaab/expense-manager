@@ -1,0 +1,34 @@
+{
+  "name": "openhisaab",
+  "version": "1.0.0",
+  "description": "Enterprise-ready open-source expense manager supporting PostgreSQL, MySQL, MSSQL, CockroachDB, and MongoDB in Kubernetes",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js",
+    "test": "node scripts/verify.js"
+  },
+  "keywords": [
+    "expense-tracker",
+    "cashflow",
+    "finance",
+    "postgresql",
+    "mysql",
+    "mssql",
+    "cockroachdb",
+    "mongodb",
+    "kubernetes",
+    "docker"
+  ],
+  "author": "Asghar Ahmed",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongodb": "^6.12.0",
+    "mssql": "^11.0.1",
+    "mysql2": "^3.12.0",
+    "pg": "^8.13.1"
+  }
+}

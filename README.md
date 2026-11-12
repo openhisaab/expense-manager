@@ -1,97 +1,120 @@
 # OpenHisaab 🪙
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Status: Active](https://img.shields.io/badge/Status-Active-blue.svg)](#)
+[![Kubernetes Ready](https://img.shields.io/badge/Kubernetes-Ready-blue.svg)](#kubernetes-deployment)
+[![Docker](https://img.shields.io/badge/Docker-Multi--stage-2496ED.svg)](#docker--docker-compose)
 
-> **OpenHisaab** is a free, modern, and 100% private open-source expense tracker and cashflow manager. It requires **zero backend servers**, runs directly in any modern web browser, and safely stores your transactions locally on your device.
-
----
-
-## ✨ Features
-
-- 💸 **Cashflow & Ledger Tracking**: Track both **Cash In (Income/Inflow)** and **Cash Out (Expenses)** with exact timestamps.
-- 🕒 **Comprehensive Date & Time Tools**:
-  - Filter by month, last 7 days, or custom date ranges.
-  - **Group by Date** view with daily subtotals.
-  - Accurate time recording down to the minute.
-- 📊 **Visual Analytics**:
-  - **Donut Chart**: Real-time spending distribution by category.
-  - **Velocity Bar Chart**: Daily spending cadence and trend lines.
-  - Quick summary cards for major commitments (Housing/Rent, Credit Cards/Loans, Cash Withdrawals, Committees/Savings).
-- 💱 **Multi-Currency Support**: Switch between PKR (₨), USD ($), EUR (€), GBP (£), INR (₹), AED, SAR with a single click.
-- 🔒 **100% Client-Side & Private**: Your financial data never leaves your computer; all data is stored locally in your browser's `localStorage`.
-- 📁 **Data Portability**: One-click **Export to CSV** for spreadsheets (Excel, Google Sheets).
-- 🏷️ **Smart Categorization**: Flexible categories with color-coded badges and auto-suggest datalists.
+> **OpenHisaab** is a cloud-native, enterprise-ready open-source expense tracker and cashflow manager. It supports **PostgreSQL, CockroachDB, MySQL, Microsoft SQL Server (MSSQL), and MongoDB**, with out-of-the-box Kubernetes manifests, health checks, and Docker Compose profiles.
 
 ---
 
-## 🚀 Quick Start
+## 🗄️ Supported Database Engines
 
-### Option 1: Direct in Browser (No Installation)
-Simply double-click `index.html` (or `start.bat` on Windows) to launch the app immediately in your default browser.
+OpenHisaab uses a unified Database Adapter architecture. Configure your database simply by setting the `DB_TYPE` and connection parameters:
+
+| Database | `DB_TYPE` Value | Default Port | Connection Variable / URL Example |
+| :--- | :--- | :--- | :--- |
+| **PostgreSQL** | `postgres` | `5432` | `postgresql://user:pass@host:5432/openhisaab` |
+| **CockroachDB** | `cockroachdb` | `26257` | `postgresql://root@host:26257/openhisaab?sslmode=disable` |
+| **MySQL / MariaDB** | `mysql` | `3306` | `mysql://user:pass@host:3306/openhisaab` |
+| **Microsoft SQL Server** | `mssql` | `1433` | `Server=host,1433;Database=openhisaab;User Id=sa;Password=pass;` |
+| **MongoDB** | `mongodb` | `27017` | `mongodb://user:pass@host:27017/openhisaab?authSource=admin` |
+| **In-Memory Store** | `memory` | N/A | *(Zero external database required, ideal for testing)* |
+
+---
+
+## ☸️ Kubernetes Deployment
+
+Production-ready manifests are located in the `k8s/` directory:
+
+```
+k8s/
+├── 00-namespace.yaml       # Dedicated 'openhisaab' namespace
+├── 01-configmap.yaml       # Database provider, ports, pool size
+├── 02-secret.yaml          # Database credentials & connection string
+├── 03-deployment.yaml      # 2 replicas, rolling updates, security context & probes
+├── 04-service.yaml         # ClusterIP service exposing port 80
+├── 05-ingress.yaml         # NGINX Ingress with TLS support
+└── kustomization.yaml      # Kustomize root
+```
+
+### 1-Command Deploy via Kustomize
+
+```bash
+kubectl apply -k ./k8s
+```
+
+### Health Probes for Kubernetes
+- **Liveness Probe**: `GET /healthz` (Verifies HTTP service responsiveness)
+- **Readiness Probe**: `GET /readyz` (Verifies database connectivity before directing cluster traffic)
+- **Zero-Downtime Rolling Updates**: Uses `preStop` hook and graceful connection draining.
+
+---
+
+## 🐳 Docker & Docker Compose
+
+Launch OpenHisaab locally alongside any supported database with one command:
+
+```bash
+# 1. Run with PostgreSQL
+docker compose --profile postgres up
+
+# 2. Run with CockroachDB
+docker compose --profile cockroachdb up
+
+# 3. Run with MySQL
+docker compose --profile mysql up
+
+# 4. Run with Microsoft SQL Server (MSSQL)
+docker compose --profile mssql up
+
+# 5. Run with MongoDB
+docker compose --profile mongodb up
+
+# 6. Run Standalone (In-Memory)
+docker compose up
+```
+
+Access the dashboard at `http://localhost:8080`.
+
+---
+
+## ⚙️ Environment Variables
+
+| Variable | Description | Default |
+| :--- | :--- | :--- |
+| `PORT` | HTTP Server port | `8080` |
+| `DB_TYPE` | `postgres` \| `cockroachdb` \| `mysql` \| `mssql` \| `mongodb` \| `memory` | `memory` |
+| `DATABASE_URL` | Full connection URI (auto-detects provider if set) | `""` |
+| `DB_HOST` | Database server hostname | `localhost` |
+| `DB_PORT` | Database server port | *(driver default)* |
+| `DB_NAME` | Database name | `openhisaab` |
+| `DB_USER` | Database username | `postgres` / `root` / `sa` |
+| `DB_PASSWORD` | Database password | `""` |
+| `DB_POOL_MAX` | Max connection pool size | `10` |
+| `DB_SSL` | Enable SSL encryption (`true` / `false`) | `false` |
+
+---
+
+## 🛠️ Local Development
 
 ```bash
 # Clone the repository
 git clone https://github.com/asgharahmed78692/openhisaab.git
-
-# Open the project folder
 cd openhisaab
 
-# Open index.html in your browser
-start index.html       # Windows
-open index.html        # macOS
-xdg-open index.html    # Linux
+# Install dependencies
+npm install
+
+# Start development server with file watching
+npm run dev
+
+# Or start in standalone offline mode by opening index.html directly
+start index.html
 ```
-
-### Option 2: Run with Local HTTP Server
-If you prefer running via a local server:
-```bash
-# Using Python 3
-python -m http.server 8000
-
-# Open http://localhost:8000 in your browser
-```
-
----
-
-## 📂 Project Structure
-
-```
-openhisaab/
-├── index.html                  # Single-page web application (Tailwind + Chart.js + Lucide)
-├── start.bat                   # 1-click Windows launcher
-├── data/
-│   └── sample-statement.json   # Generic demo dataset
-├── README.md                   # Documentation & guide
-├── LICENSE                     # MIT Open Source License
-└── .gitignore                  # Git ignore rules
-```
-
----
-
-## 🛠️ Tech Stack
-
-- **HTML5 & Vanilla JavaScript**: Ultra-fast, zero build step, no npm/node dependencies required.
-- **Tailwind CSS**: Modern, responsive utility styling.
-- **Chart.js**: Smooth and interactive SVG/Canvas charts.
-- **Lucide Icons**: Clean, consistent UI iconography.
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-Feel free to check [issues page](https://github.com/asgharahmed78692/openhisaab/issues).
-
-1. Fork the Project (`gh repo fork` or via GitHub UI)
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Distributed under the **MIT License**.

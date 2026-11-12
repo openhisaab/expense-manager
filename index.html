@@ -68,6 +68,10 @@
           <div class="flex items-center gap-2">
             <h1 class="font-extrabold text-lg text-slate-900 tracking-tight">OpenHisaab</h1>
             <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 rounded-full">Open Source</span>
+            <span id="backendStatusPill" class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+              <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+              <span id="backendStatusText">Checking DB...</span>
+            </span>
           </div>
           <p class="text-xs text-slate-400 hidden sm:block">Generic Monthly Expense & Budget Manager</p>
         </div>
@@ -522,6 +526,8 @@
     let currentCurrencyCode = 'PKR';
     let currentCurrencySymbol = '₨';
     let isDateGrouped = false;
+    let hasBackend = false;
+    let dbProviderName = 'Local Storage';
 
     let categoryChartInstance = null;
     let timelineChartInstance = null;
@@ -558,8 +564,8 @@
       });
     }
 
-    // Initialize State
-    function initData() {
+    // Initialize State (Supports both API Server and LocalStorage)
+    async function initData() {
       const savedCurrency = localStorage.getItem(CURRENCY_KEY);
       if (savedCurrency) {
         const [code, sym] = savedCurrency.split('|');
@@ -568,6 +574,34 @@
         document.getElementById('currencySelector').value = savedCurrency;
       }
       document.getElementById('modalCurrencySymbol').textContent = currentCurrencySymbol;
+
+      const pill = document.getElementById('backendStatusPill');
+      const pillText = document.getElementById('backendStatusText');
+
+      // Detect if backend API is reachable
+      try {
+        const infoRes = await fetch('/api/info');
+        if (infoRes.ok) {
+          const info = await infoRes.json();
+          hasBackend = true;
+          dbProviderName = info.databaseProvider || 'Connected DB';
+          pill.className = "inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200";
+          pill.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span><span>DB: ${dbProviderName}</span>`;
+
+          const txRes = await fetch('/api/transactions');
+          if (txRes.ok) {
+            transactions = await txRes.json();
+            return;
+          }
+        }
+      } catch (err) {
+        // Fallback to offline local storage
+        hasBackend = false;
+      }
+
+      // Offline mode display
+      pill.className = "inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-bold rounded-full bg-slate-100 text-slate-600 border border-slate-200";
+      pill.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span><span>Mode: Local / Offline</span>`;
 
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
@@ -583,7 +617,9 @@
     }
 
     function saveData() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+      if (!hasBackend) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+      }
     }
 
     // Category Colors
@@ -1022,15 +1058,22 @@
       openModal(id);
     };
 
-    window.deleteTransaction = function(id) {
+    window.deleteTransaction = async function(id) {
       if (confirm('Are you sure you want to delete this transaction record?')) {
+        if (hasBackend) {
+          try {
+            await fetch(`/api/transactions/${id}`, { method: 'DELETE' });
+          } catch (e) {
+            console.error('Failed to delete on server', e);
+          }
+        }
         transactions = transactions.filter(t => t.id !== id);
         saveData();
         refreshAll();
       }
     };
 
-    txForm.addEventListener('submit', (e) => {
+    txForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const id = document.getElementById('txId').value;
       const type = document.querySelector('input[name="modalType"]:checked').value;
@@ -1040,22 +1083,48 @@
       const category = document.getElementById('formCategory').value.trim() || 'General';
       const note = document.getElementById('formNote').value.trim();
 
+      const payload = { type, amount, date, party, category, note };
+
       if (id) {
-        const idx = transactions.findIndex(t => t.id === id);
-        if (idx !== -1) {
-          transactions[idx] = { ...transactions[idx], type, amount, date, party, category, note };
+        if (hasBackend) {
+          try {
+            const res = await fetch(`/api/transactions/${id}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            const updated = await res.json();
+            const idx = transactions.findIndex(t => t.id === id);
+            if (idx !== -1) transactions[idx] = updated;
+          } catch (err) {
+            console.error('API update failed', err);
+          }
+        } else {
+          const idx = transactions.findIndex(t => t.id === id);
+          if (idx !== -1) {
+            transactions[idx] = { ...transactions[idx], ...payload };
+          }
         }
       } else {
-        const newTx = {
-          id: 'tx-' + Date.now(),
-          type,
-          amount,
-          date,
-          party,
-          category,
-          note
-        };
-        transactions.unshift(newTx);
+        if (hasBackend) {
+          try {
+            const res = await fetch('/api/transactions', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+            const created = await res.json();
+            transactions.unshift(created);
+          } catch (err) {
+            console.error('API create failed', err);
+          }
+        } else {
+          const newTx = {
+            id: 'tx-' + Date.now(),
+            ...payload
+          };
+          transactions.unshift(newTx);
+        }
       }
 
       saveData();
@@ -1064,10 +1133,20 @@
     });
 
     // Reset Data
-    document.getElementById('btnResetData').addEventListener('click', () => {
+    document.getElementById('btnResetData').addEventListener('click', async () => {
       if (confirm('Reset your ledger to the generic sample dataset?')) {
-        transactions = JSON.parse(JSON.stringify(GENERIC_DEFAULT_DATA));
-        saveData();
+        if (hasBackend) {
+          try {
+            await fetch('/api/seed', { method: 'POST' });
+            const txRes = await fetch('/api/transactions');
+            if (txRes.ok) transactions = await txRes.json();
+          } catch (err) {
+            console.error('API seed failed', err);
+          }
+        } else {
+          transactions = JSON.parse(JSON.stringify(GENERIC_DEFAULT_DATA));
+          saveData();
+        }
         refreshAll();
       }
     });
